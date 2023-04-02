@@ -53,6 +53,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'MercadoControl_Backend.brands',
+    'MercadoControl_Backend.categories',
+    'MercadoControl_Backend.list_of_prices',
+    'MercadoControl_Backend.products',
+    'MercadoControl_Backend.shopping_lists',
+    'MercadoControl_Backend.shoppings',
+    'MercadoControl_Backend.supermarkets',
+    'MercadoControl_Backend.users'
 ]
 
 MIDDLEWARE = [
