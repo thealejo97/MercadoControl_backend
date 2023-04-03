@@ -60,8 +60,10 @@ INSTALLED_APPS = [
     'MercadoControl_Backend.shopping_lists',
     'MercadoControl_Backend.shoppings',
     'MercadoControl_Backend.supermarkets',
-    'MercadoControl_Backend.users'
+    'MercadoControl_Backend.users',
 ]
+
+AUTH_USER_MODEL = 'users.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
