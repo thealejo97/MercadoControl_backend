@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
     'MercadoControl_Backend.brands',
     'MercadoControl_Backend.categories',
     'MercadoControl_Backend.list_of_prices',
