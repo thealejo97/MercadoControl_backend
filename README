@@ -1,3 +1,18 @@
 ##APLICACIÓN DE MERCADO INTELIGENTE
 
+Aplicación de mercado inteligente que permite a las personas realizar una lista de compras presupuesto y también conocer los últimos precios actualizados de los diferentes comercios a su alrededor
 
+##Informacioón aplicación
+La aplicación se encuentra realizada en docker utilizando django adicionalmente tiene una conexión a una base de datos postges en clever cloud, y para su despliegue se está utilizando fly.io
+Documentación Fly.io: https://fly.io/docs/getting-started/
+
+##Despliegue
+Para realizar el despliegue de la aplicación necesitas utilizar los siguientes comandos.
+
+flyctl launch (Completar la información como el nombre el lugar y no crear base de datos ni redis)
+flyctl deploy
+
+Listo la aplicación debe quedar desplegada, validarlo en la consola de fly.io, cuenta ‘thealejo97@gmail.com’
+
+para validar el monitoreo:
+https://fly.io/apps/mercadocontrolback/monitoring
