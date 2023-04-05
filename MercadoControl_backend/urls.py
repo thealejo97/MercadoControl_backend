@@ -25,4 +25,7 @@ urlpatterns = [
     path('api/shoppings/', include('MercadoControl_Backend.shoppings.urls')),
     path('api/shopping_list/', include('MercadoControl_Backend.shopping_lists.urls')),
     path('api/products/', include('MercadoControl_Backend.products.urls')),
+    path('api/list_of_prices/', include('MercadoControl_Backend.list_of_prices.urls')),
+    path('api/categories/', include('MercadoControl_Backend.categories.urls')),
+    path('api/brands/', include('MercadoControl_Backend.brands.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
