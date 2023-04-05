@@ -21,4 +21,5 @@ from MercadoControl_Backend import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/users/', include('MercadoControl_Backend.users.urls')),
+    path('api/supermarkets/', include('MercadoControl_Backend.supermarkets.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
