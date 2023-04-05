@@ -1,10 +1,6 @@
 from rest_framework.generics import CreateAPIView,ListAPIView,DestroyAPIView,RetrieveAPIView,UpdateAPIView
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from rest_framework import status
 from .serializers import SupermarketSerializer
 from .models import Supermarket
-from django.contrib.auth import authenticate, login
 
 class SupermarketListAPIView(ListAPIView):
     """
