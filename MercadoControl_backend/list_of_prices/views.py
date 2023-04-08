@@ -32,8 +32,18 @@ class List_of_priceListAPIView(ListAPIView):
     Errors:
     - 400 Bad request: Bad request.
     """
-    queryset = List_of_price.objects.all()
+
     serializer_class = List_of_priceSerializer
+
+    def get_queryset(self):
+        query = List_of_price.objects.all()
+        if self.request.GET.get('supermarket_id'):
+            id_supermarket = self.request.GET.get('supermarket_id')
+            query = query.filter(supermarket=id_supermarket)
+        if self.request.GET.get('product_id'):
+            id_product = self.request.GET.get('product_id')
+            query = query.filter(product=id_product)
+        return query
 
 class List_of_priceDetailAPIView(RetrieveAPIView):
     """
