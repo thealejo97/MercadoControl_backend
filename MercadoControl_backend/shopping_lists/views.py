@@ -31,8 +31,13 @@ class Shopping_listListAPIView(ListAPIView):
     Errors:
     - 400 Bad request: Bad request.
     """
-    queryset = Shopping_list.objects.all()
+
     serializer_class = Shopping_listSerializer
+
+    def get_queryset(self):
+        query = Shopping_list.objects.all()
+        print(self)
+        return query
 
 class Shopping_listDetailAPIView(RetrieveAPIView):
     """
@@ -71,43 +76,9 @@ class Shopping_listDetailAPIView(RetrieveAPIView):
     serializer_class = Shopping_listSerializer
 
 class Shopping_listCreateAPIView(CreateAPIView):
-    """
-            API view to CREATE a shopping_list.
-
-            Created: Alejandro Montaño 05-04-2023
-
-            Usage:
-            Send a POST request and the PARAMS of the shopping_list and the api CREATE the shopping_list.
-
-            Returns:
-            A response with a HTTP response - 200 Ok.
-
-            HTTP Methods:
-            POST
-
-            Request:
-            {
-            "name":"string",#required
-            "name": "string",
-            "phone": "int",
-            "indicative": "int",
-s            "adress": "string",
-            }
-
-            Response:
-            {
-                "id": "int",
-                "name": "string",
-                "phone": "int",
-                "indicative": "int",
-                "adress": "string",
-            }
-
-            Errors:
-            - 400 Bad request: Bad request.
-            """
     queryset = Shopping_list.objects.all()
     serializer_class = Shopping_listSerializer
+
 
 class Shopping_listUpdateAPIView(UpdateAPIView):
     """
