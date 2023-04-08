@@ -14,6 +14,8 @@ from pathlib import Path
 import json
 import os
 from sys import platform
+
+from corsheaders.middleware import CorsMiddleware
 from django.core.exceptions import ImproperlyConfigured
 import environ
 
@@ -55,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
     'MercadoControl_Backend',
     'MercadoControl_Backend.brands',
     'MercadoControl_Backend.categories',
@@ -65,7 +68,9 @@ INSTALLED_APPS = [
     'MercadoControl_Backend.supermarkets',
     'MercadoControl_Backend.users',
 ]
-
+CORS_ORIGIN_WHITELIST = [
+        'http://localhost:3000'
+]
 AUTH_USER_MODEL = 'users.User'
 
 MIDDLEWARE = [
@@ -76,6 +81,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'MercadoControl_Backend.urls'
