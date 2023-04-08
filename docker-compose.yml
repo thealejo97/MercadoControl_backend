@@ -5,3 +5,7 @@ services:
     build: .
     ports:
       - "8000:8000"
+    environment:
+      - DEBUG=1
+      - ALLOWED_HOSTS=*
+      - CORS_ORIGIN_ALLOW_ALL=true
