@@ -15,7 +15,6 @@ import json
 import os
 from sys import platform
 
-from corsheaders.middleware import CorsMiddleware
 from django.core.exceptions import ImproperlyConfigured
 import environ
 
@@ -45,10 +44,10 @@ DEBUG = get_secret("DEBUG")
 
 ALLOWED_HOSTS = ['localhost','mercadocontrolback.fly.dev']
 
-
 # Application definition
 
 INSTALLED_APPS = [
+    "corsheaders",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,7 +56,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'corsheaders',
     'MercadoControl_Backend',
     'MercadoControl_Backend.brands',
     'MercadoControl_Backend.categories',
@@ -68,12 +66,11 @@ INSTALLED_APPS = [
     'MercadoControl_Backend.supermarkets',
     'MercadoControl_Backend.users',
 ]
-CORS_ORIGIN_WHITELIST = [
-        'http://localhost:3000'
-]
+
 AUTH_USER_MODEL = 'users.User'
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -81,8 +78,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+
 ]
+
+CORS_ALLOW_ALL_ORIGINS=True
+CORS_ALLOW_CREDENTIALS=True
 
 ROOT_URLCONF = 'MercadoControl_Backend.urls'
 
