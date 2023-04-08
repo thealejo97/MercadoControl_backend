@@ -31,8 +31,13 @@ class Shopping_listListAPIView(ListAPIView):
     Errors:
     - 400 Bad request: Bad request.
     """
-    queryset = Shopping_list.objects.all()
+
     serializer_class = Shopping_listSerializer
+
+    def get_queryset(self):
+        query = Shopping_list.objects.all()
+
+        return query
 
 class Shopping_listDetailAPIView(RetrieveAPIView):
     """
