@@ -1,5 +1,4 @@
 from django.db import models
-from MercadoControl_Backend.brands.models import Brand
 from MercadoControl_Backend.categories.models import Category
 
 UNITS = (
@@ -21,7 +20,6 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     unit_of_measure = models.CharField(choices=UNITS,max_length=100)
     amount = models.IntegerField()
-    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     category = models.CharField(choices=CATEGORIES,max_length=100)
 
     creation_date = models.DateTimeField(auto_now_add=True)
@@ -29,5 +27,5 @@ class Product(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        name = self.name + " - " + self.brand.name
+        name = self.name + " - " + str(self.amount)  +" "+self.unit_of_measure
         return name
