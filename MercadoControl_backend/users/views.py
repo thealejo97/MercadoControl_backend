@@ -87,7 +87,6 @@ class UserListAPIView(ListAPIView):
     - 403 Forbidden: Authentication credentials were not provided..
     """
 
-    permission_classes = (IsAuthenticated,)
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
