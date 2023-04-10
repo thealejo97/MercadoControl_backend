@@ -1,5 +1,5 @@
 from rest_framework.generics import CreateAPIView,ListAPIView,DestroyAPIView,RetrieveAPIView,UpdateAPIView
-from .serializers import Shopping_listSerializer
+from .serializers import ListOfPriceSerializer, ShoppingListSerializer
 from .models import Shopping_list
 
 class Shopping_listListAPIView(ListAPIView):
@@ -32,11 +32,10 @@ class Shopping_listListAPIView(ListAPIView):
     - 400 Bad request: Bad request.
     """
 
-    serializer_class = Shopping_listSerializer
+    serializer_class = ShoppingListSerializer
 
     def get_queryset(self):
         query = Shopping_list.objects.all()
-        print(self)
         return query
 
 class Shopping_listDetailAPIView(RetrieveAPIView):
@@ -73,11 +72,11 @@ class Shopping_listDetailAPIView(RetrieveAPIView):
         - 404 Not Found: The requested resource could not be found.
         """
     queryset = Shopping_list.objects.all()
-    serializer_class = Shopping_listSerializer
+    serializer_class = ShoppingListSerializer
 
 class Shopping_listCreateAPIView(CreateAPIView):
     queryset = Shopping_list.objects.all()
-    serializer_class = Shopping_listSerializer
+    serializer_class = ShoppingListSerializer
 
 
 class Shopping_listUpdateAPIView(UpdateAPIView):
@@ -117,7 +116,7 @@ class Shopping_listUpdateAPIView(UpdateAPIView):
                 - 404 Not Found: The requested resource could not be found.
                 """
     queryset = Shopping_list.objects.all()
-    serializer_class = Shopping_listSerializer
+    serializer_class = ShoppingListSerializer
 
 class Shopping_listDeleteAPIView(DestroyAPIView):
     """
@@ -146,4 +145,4 @@ class Shopping_listDeleteAPIView(DestroyAPIView):
                     - 404 Not Found: The requested resource could not be found.
                     """
     queryset = Shopping_list.objects.all()
-    serializer_class = Shopping_listSerializer
+    serializer_class = ShoppingListSerializer

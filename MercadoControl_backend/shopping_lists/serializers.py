@@ -1,12 +1,16 @@
-from django.forms import CheckboxSelectMultiple
+from django.forms import CheckboxSelectMultiple, widgets
 from rest_framework import serializers
-from .models import Shopping_list
-from ..list_of_prices.models import List_of_price, ShoppingListListofPrice
-from ..list_of_prices.serializers import List_of_priceSerializer, ShoppingListListofPriceSerializer
+from .models import Shopping_list, ShoppingListListofPrice
+from ..list_of_prices.models import List_of_price
+from ..list_of_prices.serializers import ListOfPriceSerializer
 
+class ShoppingListListofPriceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShoppingListListofPrice
+        fields = ['list_of_price', 'estimated_price', 'amount', 'added']
 
-class Shopping_listSerializer(serializers.ModelSerializer):
-    list_of_prices = ShoppingListListofPriceSerializer(many=True)
+class ShoppingListSerializer(serializers.ModelSerializer):
+    list_of_prices = ShoppingListListofPriceSerializer(many=True,write_only=True)
 
     class Meta:
         model = Shopping_list
