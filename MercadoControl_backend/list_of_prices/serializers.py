@@ -5,8 +5,8 @@ from ..shopping_lists.models import Shopping_list
 
 
 class ListOfPriceSerializer(serializers.ModelSerializer):
-    supermarket_name = serializers.SerializerMethodField()
-    product_name = serializers.SerializerMethodField()
+    supermarket_name = serializers.SerializerMethodField(read_only=True)
+    product_name = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = List_of_price
         fields = ['id', 'supermarket','supermarket_name', 'product','product_name','price']
