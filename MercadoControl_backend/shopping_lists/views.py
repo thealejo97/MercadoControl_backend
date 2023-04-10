@@ -17,17 +17,6 @@ class Shopping_listListAPIView(ListAPIView):
     HTTP Methods:
     GET
 
-    Request:
-
-    Response:
-    {
-        "id": "int",
-        "name": "string",
-        "phone": "int",
-        "indicative": "int",
-        "adress": "string",
-    }
-
     Errors:
     - 400 Bad request: Bad request.
     """
@@ -53,20 +42,6 @@ class Shopping_listDetailAPIView(RetrieveAPIView):
         HTTP Methods:
         GET
 
-        Request:
-        {
-        "id":"int"
-        }
-
-        Response:
-        {
-            "id": "int",
-            "name": "string",
-            "phone": "int",
-            "indicative": "int",
-            "adress": "string",
-        }
-
         Errors:
         - 400 Bad request: Bad request.
         - 404 Not Found: The requested resource could not be found.
@@ -75,6 +50,55 @@ class Shopping_listDetailAPIView(RetrieveAPIView):
     serializer_class = ShoppingListSerializer
 
 class Shopping_listCreateAPIView(CreateAPIView):
+    """
+
+        API view to list one shopping_list.
+
+        Created: Alejandro Montaño 10-04-2023
+
+        Usage:
+        Send a POST request with the information of an shopping_list and the api will create it.
+
+        Returns:
+        A response with a HTTP response - 200 Ok.
+
+        HTTP Methods:
+        GET
+
+        Request:
+            {
+                "name": "string",
+                "user": int,
+                "list_of_prices": [
+                    {
+                        "list_of_price": "int",
+                        "estimated_price": "int",
+                        "amount": "int",
+                        "added": "bool"
+                    },
+                    {
+                        "list_of_price": "int",
+                        "estimated_price": "int",
+                        "amount": "int",
+                        "added": "bool"
+                    }
+                ]
+            }
+
+        Response:
+        {
+            "id": "int",
+            "name": "string",
+            "user": int,
+            "list_of_prices": "list"
+        }
+
+        Errors:
+        - 400 Bad request: Bad request.
+        - 404 Not Found: The requested resource could not be found.
+
+    """
+
     queryset = Shopping_list.objects.all()
     serializer_class = ShoppingListSerializer
 
