@@ -9,10 +9,10 @@ class ListOfPriceSerializer(serializers.ModelSerializer):
     product_name = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = List_of_price
-        fields = ['id', 'supermarket','supermarket_name', 'product','product_name','price']
+        fields = ['id', 'supermarket','supermarket_name', 'product','product_name','price','brand','aditional_info']
 
     def get_supermarket_name(self,obj):
         return obj.supermarket.name
 
     def get_product_name(self,obj):
-        return obj.product.name
+        return obj.product.name + " - "+ obj.brand.name + " - " + str(obj.product.amount)
