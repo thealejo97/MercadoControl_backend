@@ -40,9 +40,15 @@ class List_of_priceListAPIView(ListAPIView):
         if self.request.GET.get('supermarket_id'):
             id_supermarket = self.request.GET.get('supermarket_id')
             query = query.filter(supermarket=id_supermarket)
+        if self.request.GET.get('supermarket_name'):
+            supermarket_name = self.request.GET.get('supermarket_name')
+            query = query.filter(supermarket__name__icontains=supermarket_name)
         if self.request.GET.get('product_id'):
             id_product = self.request.GET.get('product_id')
             query = query.filter(product=id_product)
+        if self.request.GET.get('product_name'):
+            name_product = self.request.GET.get('product_name')
+            query = query.filter(product__name__icontains=name_product)
         return query
 
 class List_of_priceDetailAPIView(RetrieveAPIView):
