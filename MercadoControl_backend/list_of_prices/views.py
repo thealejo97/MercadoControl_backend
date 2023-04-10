@@ -1,5 +1,5 @@
 from rest_framework.generics import CreateAPIView,ListAPIView,DestroyAPIView,RetrieveAPIView,UpdateAPIView
-from .serializers import List_of_priceSerializer
+from .serializers import *
 from .models import List_of_price
 
 
@@ -33,7 +33,7 @@ class List_of_priceListAPIView(ListAPIView):
     - 400 Bad request: Bad request.
     """
 
-    serializer_class = List_of_priceSerializer
+    serializer_class = ListOfPriceSerializer
 
     def get_queryset(self):
         query = List_of_price.objects.all()
@@ -79,7 +79,7 @@ class List_of_priceDetailAPIView(RetrieveAPIView):
         - 404 Not Found: The requested resource could not be found.
         """
     queryset = List_of_price.objects.all()
-    serializer_class = List_of_priceSerializer
+    serializer_class = ListOfPriceSerializer
 
 class List_of_priceCreateAPIView(CreateAPIView):
     """
@@ -118,7 +118,7 @@ s            "adress": "string",
             - 400 Bad request: Bad request.
             """
     queryset = List_of_price.objects.all()
-    serializer_class = List_of_priceSerializer
+    serializer_class = ListOfPriceSerializer
 
 class List_of_priceUpdateAPIView(UpdateAPIView):
     """
@@ -157,7 +157,7 @@ class List_of_priceUpdateAPIView(UpdateAPIView):
                 - 404 Not Found: The requested resource could not be found.
                 """
     queryset = List_of_price.objects.all()
-    serializer_class = List_of_priceSerializer
+    serializer_class = ListOfPriceSerializer
 
 class List_of_priceDeleteAPIView(DestroyAPIView):
     """
@@ -186,4 +186,4 @@ class List_of_priceDeleteAPIView(DestroyAPIView):
                     - 404 Not Found: The requested resource could not be found.
                     """
     queryset = List_of_price.objects.all()
-    serializer_class = List_of_priceSerializer
+    serializer_class = ListOfPriceSerializer
