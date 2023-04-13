@@ -49,7 +49,7 @@ class List_of_priceListAPIView(ListAPIView):
         if self.request.GET.get('product_name'):
             name_product = self.request.GET.get('product_name')
             query = query.filter(product__name__icontains=name_product)
-        return query
+        return query.order_by('id')
 
 class List_of_priceDetailAPIView(RetrieveAPIView):
     """

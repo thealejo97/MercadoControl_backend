@@ -25,6 +25,10 @@ class Shopping_listListAPIView(ListAPIView):
 
     def get_queryset(self):
         query = Shopping_list.objects.all()
+
+        if self.request.GET.get('user_id'):
+            id_user = self.request.GET.get('user_id')
+            query = query.filter(user_id=id_user)
         return query
 
 class Shopping_listDetailAPIView(RetrieveAPIView):
