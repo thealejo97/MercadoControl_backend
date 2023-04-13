@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
@@ -133,8 +134,13 @@ class UserLoginAPIView(APIView):
             if user.is_active:
                 login(request, user)
                 token, created = Token.objects.get_or_create(user=user)
-                return Response({'user': user.username, 'token': token.key}, status=status.HTTP_200_OK)
+                return Response({'user': user.username,'user_id': user.id,'user_name': user.first_name, 'token': token.key}, status=status.HTTP_200_OK)
             else:
                 return Response({'error': 'This user has been deactivated.'}, status=status.HTTP_401_UNAUTHORIZED)
         else:
             return Response({'error': 'Invalid username or password.'}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+def csrf_cookie_view(request):
+    # la vista ensure_csrf_cookie ya ha establecido la cookie CSRF en la respuesta
+    return HttpResponse()
