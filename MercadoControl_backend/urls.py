@@ -29,3 +29,5 @@ urlpatterns = [
     path('api/categories/', include('MercadoControl_Backend.categories.urls')),
     path('api/brands/', include('MercadoControl_Backend.brands.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
