@@ -6,14 +6,18 @@ from ..shopping_lists.models import Shopping_list
 
 class ListOfPriceSerializer(serializers.ModelSerializer):
     supermarket_name = serializers.SerializerMethodField(read_only=True)
+    supermarket_logo = serializers.SerializerMethodField(read_only=True)
     product_name = serializers.SerializerMethodField(read_only=True)
     creation_date = serializers.DateTimeField(read_only=True)
     class Meta:
         model = List_of_price
-        fields = ['id', 'supermarket','supermarket_name', 'product','product_name','price','brand','aditional_info','picture','creation_date']
+        fields = ['id', 'supermarket','supermarket_name', 'product','product_name','price','supermarket_logo','brand','aditional_info','picture','creation_date']
 
     def get_supermarket_name(self,obj):
         return obj.supermarket.name
+
+    def get_supermarket_logo(self,obj):
+        return obj.supermarket.logo_supermarket.url
 
     def get_product_name(self,obj):
         return obj.product.name + " - "+ obj.brand.name + " - " + str(obj.product.amount)

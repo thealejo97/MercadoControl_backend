@@ -13,7 +13,7 @@ class List_of_price(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     aditional_info = models.CharField(null=True, blank=True, max_length=500)
-    picture = models.ImageField(upload_to='pictures/', null=True, blank=True)
+    picture = models.ImageField(upload_to='products/', null=True, blank=True)
 
     creation_date = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(auto_now=True)

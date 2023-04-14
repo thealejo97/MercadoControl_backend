@@ -21,7 +21,7 @@ class ShoppingListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Shopping_list
-        fields = ['id', 'name', 'user', 'list_of_prices','products_of_shopping_list']
+        fields = ['id', 'name', 'user', 'list_of_prices','products_of_shopping_list','creation_date']
 
     def create(self, validated_data):
         list_of_prices_data = validated_data.pop('list_of_prices')
