@@ -20,4 +20,4 @@ class ListOfPriceSerializer(serializers.ModelSerializer):
         return obj.supermarket.logo_supermarket.url
 
     def get_product_name(self,obj):
-        return obj.product.name + " - "+ obj.brand.name + " - " + str(obj.product.amount)
+        return obj.product.name + " - "+ obj.brand.name + " - " + str(obj.product.amount) + " "+ str(obj.product.unit_of_measure)
