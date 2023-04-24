@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'MercadoControl_Backend.shoppings',
     'MercadoControl_Backend.supermarkets',
     'MercadoControl_Backend.users',
+    'MercadoControl_Backend.scrapping',
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -91,7 +92,7 @@ ROOT_URLCONF = 'MercadoControl_Backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'scrapping', 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

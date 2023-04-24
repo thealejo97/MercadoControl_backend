@@ -1,4 +1,5 @@
 asgiref==3.6.0
+beautifulsoup4
 Django==3.2.18
 django-cors-headers==3.7.0
 djangorestframework==3.11.0
@@ -10,6 +11,8 @@ psycopg2==2.8.4
 psycopg2-binary==2.8.6
 pytz==2023.3
 pillow==9.5.0
+requests
+selenium
 sqlparse==0.4.3
 gunicorn
 typing-extensions==4.5.0
